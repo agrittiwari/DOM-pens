@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Running Ants</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <style>
+            body{background-image: url(./image/sugar.jpg);
+                background-repeat: no-repeat;  
+                background-size: cover;
+                cursor: -webkit-grab; 
+                cursor: grab;}
+                .center{
+                    margin-left:30%;
+                }
+        .heading{color:brown;}
+        .ant{position:absolute;
+            top:120px;
+            left:45%;
+            width: 10%;
+            transition: 0.2s ease all;
+            }</style>
+    </head>
+    <body >
+        <div class="center">
+            <h1 class="heading">Crazy Running Ants</h1>
+    <strong >Try to grab the ants 🐜 </strong>
+        </div>
+            <img src="./image/ant.png" class="ant"/>
+            <img src="./image/ant.png" class="ant"/>
+             <img src="./image/ant.png" class="ant"/>
+              <img src="./image/ant.png" class="ant"/>
+               <img src="./image/ant.png" class="ant"/> 
+               <img src="./image/ant.png" class="ant"/> 
+               <img src="./image/ant.png" class="ant"/>
+               <img src="./image/ant.png" class="ant"/>
+               <img src="./image/ant.png" class="ant"/>
+                <img src="./image/ant.png" class="ant"/>
+                 <img src="./image/ant.png" class="ant"/>
+                  <img src="./image/ant.png" class="ant"/> 
+                  <img src="./image/ant.png" class="ant"/> 
+                  <img src="./image/ant.png" class="ant"/>
+                  <img src="./image/ant.png" class="ant"/>
+                  <img src="./image/ant.png" class="ant"/>
+                   <img src="./image/ant.png" class="ant"/>
+                    <img src="./image/ant.png" class="ant"/>
+                     <img src="./image/ant.png" class="ant"/> 
+                     <img src="./image/ant.png" class="ant"/> 
+                     <img src="./image/ant.png" class="ant"/>
+        <script>
+            //grab every dom element wwe need
+const runningAnts = document.querySelectorAll('.ant');
+
+            // create functions we will need
+function goCrazy(){
+
+    //get a random number for left offset 
+const offsetLeft = Math.random() * (window.innerWidth- this.clientWidth)
+    //get a random number for top offset
+const offsetTop = Math.random() * (window.innerHeight - this.clientHeight)
+console.log(offsetLeft, offsetTop)
+this.style.top = offsetTop + 'px';
+
+this.style.left = offsetLeft + 'px';
+}
+
+
+            //add eventListeners to it.
+runningAnts.forEach(ant => ant.addEventListener('mouseenter', goCrazy))
+runningAnts.forEach(ant => ant.addEventListener('mouseleave', goCrazy))
+        </script>
+    </body>
+</html>

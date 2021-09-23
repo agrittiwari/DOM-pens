@@ -1,0 +1,49 @@
+<DOCTYPE!>
+    <html lang="en">
+        <body>
+    <div class= "jumbotron">
+    <h2>Estimating project time!
+    </h2>
+<form>
+    <label for="minutes">Minutes</label>
+    <input type="number" class="form-control" value="10" name="minutes">
+<div class="form-group">
+    <label for="time">Number of Contributors <span class=" label label-primary people-count-span"></span></label>
+    <input type="range" class="form-control" name="people-count" value="1"
+    min="1" max="10" step="1"></div>
+</form>
+<div class="text-right text-giant total-time"></div>
+</div>
+
+            <script>
+                //grab everything we need from the DOM
+                const timeInput = document.querySelector('[name=minutes]')
+                const peopleCount = document.querySelector('[name=people-count]')
+                const totalTime = document.querySelector('.total-time')
+                const displayPeople = document.querySelector('.people-count-span')
+                //create functions that we will need
+                function calculateProjectTime(){
+                    console.log('running..')
+                    const time = timeInput.value;
+                    const people = peopleCount.value;
+                    const projectTime = time * people;
+                    totalTime.innerText = Math.round(projectTime) + 'mins';
+                    displayPeople.innerText = people;
+                }
+calculateProjectTime()
+
+                //add our event listeners
+                timeInput.addEventListener('input', calculateProjectTime)
+                peopleCount.addEventListener('input', calculateProjectTime)
+            </script>
+        </body>
+        <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <meta charset="UTF-8">
+            <title>Pricing Calculator</title>
+            <style>
+            body, .jumbotron{padding:30px;}
+            .text-giant{font-size:40px;}</style>
+        </head>
+
+    </html>
